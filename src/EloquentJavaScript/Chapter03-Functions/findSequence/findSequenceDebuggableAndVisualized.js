@@ -21,7 +21,7 @@ function findSequence(goal) {
     
       totalFindCalls++;    
       indent = "*".x(findRecursions);
-      message = totalFindCalls + " " + indent + findRecursions + " " + start + " " + history + " = " + eval(history); 
+      message = pad(totalFindCalls,6) + " " + pad(findRecursions,6) + indent + " " + start + " " + history + " = " + eval(history); 
       print(message);
     }
     
@@ -49,6 +49,7 @@ function findSequence(goal) {
           if(d) findRecursions--;
           return result;
       } else {
+          if(v) print("NULL -- now switching to the find(start * 3 ....");
           return find(start * 3, "(" + history + " * 3)");
       }
     } 
@@ -66,5 +67,15 @@ String.prototype.x = function(numberOfTimesToMultiply) {
   return multipliedString ;
 }
 
+  
+function pad(
+  a,// the number to convert 
+  b // number of resulting characters
+){
+  return (
+    1e15 + a + // combine with large number
+    ""  // convert to string
+  ).slice(-b) // cut leading "1"
+}
+
 print(findSequence(24));
-//print(findSequence(42));
