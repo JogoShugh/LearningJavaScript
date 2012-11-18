@@ -7,73 +7,73 @@ function findSequence(goal, trip, debug, verbose) {
   // (or breakpoint if any others are set).
   
   function find(start, history) {
-    find.afterEntry(start, history);
+    afterEntry(start, history);
     
     if (start == goal) {
-      find.afterGoalMet();
+      afterGoalMet();
       return history;
     }
     else if (start > goal) {
-      find.whenStartExceedsGoal();
+      whenStartExceedsGoal();
       return null;
     }
     else 
     {
-      find.whenStartDoesntExceedGoal();
+      whenStartDoesntExceedGoal();
       
       var result = find(start + 5, "(" + history + " + 5)");
       
       if (result != null) {
-          find.whenResultIsNotNull(result);
+          whenResultIsNotNull(result);
           return result;
       } else {
-          find.whenResultIsNull();
+          whenResultIsNull();
           return find(start * 3, "(" + history + " * 3)");
       }
     } 
   }
   
-  find.findRecursions = 0;
-  find.totalFindCalls = 0;
-  find.nullReturns = 0;
-  find.d=debug;
-  find.v=verbose;
+  var findRecursions = 0;
+  var totalFindCalls = 0;
+  var nullReturns = 0;
+  var d=debug;
+  var v=verbose;
   
-  find.afterEntry = function(start, history) {
-    if (find.d){
+  var afterEntry = function(start, history) {
+    if (d){
       var message = "";
       var indent = "";    
-      find.totalFindCalls++;    
-      indent = "*".x(find.findRecursions);
-      message = pad(find.totalFindCalls,6) + " " + pad(find.findRecursions,6) + indent + " " + start + " " + history + " = " + eval(history); 
+      totalFindCalls++;    
+      indent = "*".x(findRecursions);
+      message = pad(totalFindCalls,6) + " " + pad(findRecursions,6) + indent + " " + start + " " + history + " = " + eval(history); 
       print(message);
     }
   };
     
-  find.afterGoalMet = function() {
-    if(find.v) print("Hi. You should only see this messae ONCE per test..");
-    if(find.d) find.findRecursions--;
+  var afterGoalMet = function() {
+    if(v) print("Hi. You should only see this messae ONCE per test..");
+    if(d) findRecursions--;
   };
     
-  find.whenStartExceedsGoal = function() {
-      if(find.d) { 
-        find.findRecursions--;
-        find.nullReturns++;
+  var whenStartExceedsGoal = function() {
+      if(d) { 
+        findRecursions--;
+        nullReturns++;
       }
-      if(find.v) print("Null returns. Well, you've seen me " + find.nullReturns + " times already!");
+      if(v) print("Null returns. Well, you've seen me " + nullReturns + " times already!");
   };
   
-  find.whenStartDoesntExceedGoal = function() {
-    if(find.d) find.findRecursions++;
+  var whenStartDoesntExceedGoal = function() {
+    if(d) findRecursions++;
   };
   
-  find.whenResultIsNotNull = function(result) {
-    if(find.v) print("NOT NULL: " + find.findRecursions + ": " + result);
-    if(find.d) find.findRecursions--;  
+  var whenResultIsNotNull = function(result) {
+    if(v) print("NOT NULL: " + findRecursions + ": " + result);
+    if(d) findRecursions--;  
   };
   
-  find.whenResultIsNull = function() {
-    if(find.v) print("NULL -- now switching to the find(start * 3 ....");
+  var whenResultIsNull = function() {
+    if(v) print("NULL -- now switching to the find(start * 3 ....");
   };
   
   return find(1, "1");
