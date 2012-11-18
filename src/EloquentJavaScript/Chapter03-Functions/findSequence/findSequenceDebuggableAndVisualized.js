@@ -39,7 +39,7 @@ function findSequence(goal, trip, debug, verbose) {
   var d=debug;
   var v=verbose;
   
-  var afterEntry = function(start, history) {
+  function afterEntry(start, history) {
     if (d){
       var message = "";
       var indent = "";    
@@ -48,33 +48,33 @@ function findSequence(goal, trip, debug, verbose) {
       message = pad(totalFindCalls,6) + " " + pad(findRecursions,6) + indent + " " + start + " " + history + " = " + eval(history); 
       print(message);
     }
-  };
+  }
     
-  var afterGoalMet = function() {
+  function afterGoalMet() {
     if(v) print("Hi. You should only see this messae ONCE per test..");
     if(d) findRecursions--;
-  };
+  }
     
-  var whenStartExceedsGoal = function() {
+  function whenStartExceedsGoal() {
       if(d) { 
         findRecursions--;
         nullReturns++;
       }
       if(v) print("Null returns. Well, you've seen me " + nullReturns + " times already!");
-  };
+  }
   
-  var whenStartDoesntExceedGoal = function() {
+  function whenStartDoesntExceedGoal() {
     if(d) findRecursions++;
-  };
+  }
   
-  var whenResultIsNotNull = function(result) {
+  function whenResultIsNotNull(result) {
     if(v) print("NOT NULL: " + findRecursions + ": " + result);
     if(d) findRecursions--;  
-  };
+  }
   
-  var whenResultIsNull = function() {
+  function whenResultIsNull() {
     if(v) print("NULL -- now switching to the find(start * 3 ....");
-  };
+  }
   
   return find(1, "1");
 }
