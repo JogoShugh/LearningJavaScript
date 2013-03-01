@@ -14,27 +14,50 @@
 		<div data-role="header">
 			<h2>Waffle House Menu</h2>
 		</div>
+		<div data-role=content >
+			<div data-role= controlgroup data-type=horizontal>
+				<a href=#Breakfast data-role = button data-icon = home data-inline = "true">Breakfast</a>
+				<a href=#Lunch data-role = button data-icon = home data-inline = "true">Lunch</a>
+				
+			</div>
+			<a href="#Dinner" data-role= button data-icon="home">Dinner</a>
+		</div>	
 
 		<div data-role=content>
-			<ul data-role=listview data-filter=true>
+			<ul data-role=listview data-filter=true data-inset = true>
 				<li data-role="list-divider">FOOD</li>
-				<li><img src = "Waffle-House-2.jpg"/>Waffles<span class=ui-li-count>50</span></li>
-				<li><a href = "#eggs" data-transition="flip"><img src="cracked-egg.jpg"/>Eggs</a></li>
-				<li><img src = "hash-browns.jpg"/>Hash Browns</li>
+				<li data-icon = alert><a href=#><img src = "Waffle-House-2.jpg"/>Waffles<span class=ui-li-count>50</span></a></li>
+				<li data-icon = "grid"><a href = "#eggs" data-transition="flip"><img src="cracked-egg.jpg"/>Eggs</a></li>
+				<li data-icon = forward><a href=#><img src = "hash-browns.jpg"/>Hash Browns</a></li>
 				<li><img src = "exps2422_C2016C51D.jpg"/>Chezzey Grits</li>
 				<li><img src = "svetik.jpg"/>Hamburger</li>
-				<li data-role="list-divider">DRINKS</li>
-				<li>Coffee</li>
-				<li>Orange Juice</li>
-				<li>Milk</li>
 			</ul>
+		</div>
+		<div data-role=content>
+			<span>Choose you are refreshment: </span>
+			<select data-native-menu=false data-icon = arrow-u>
+				<optGroup label = "Choose, we command you!!">
+					<option value=1 data-icon = gear><a href=#>Coffee</a></option>
+					<option value=2>Milk</option>
+					<option value=3>Orange Juice</option>
+					<option value=1>Water</option>
+					<option value=5>Grapefruit Juice</option>
+				</optgroup>
+				<optgroup label = Soda>
+					<option value=6>Coke</option>
+					<option value=7>Sprite</option>
+					<option value=8>Pib Xtra</option>
+					<option value=9>Fanta</option>
+				</optgroup>
+			</select>
 		</div>
 	</div>
 	<div data-role = "page" id = "eggs" data-add-back-btn = true>
-		<div data-role = "header">
-			<h3>EGGS<h3>
-		</div>
-		<ul data-role=listview>
+			<div data-role = "header">
+				<h3>EGGS<h3>
+			</div>
+		<div data-role = content>
+		<ul data-role=listview data-inset = true>
 			<li>Scrambled</li>
 			<li>Sunny Side Up</li>
 			<li>Eggs in a basket</li>
@@ -42,7 +65,20 @@
 			<li>Poached</li>
 			<li>Raw Egg Shake</li>
 		</ul>
+		</div>
 	</div>
+<div data-role = "page" id = "Dinner" data-add-back-btn = true>
+		<div data-role = "header">
+			<h3>DIN DIN</h3>
+		</div>
+		<div data-role = "content">
+			<p><Will figure this out later</p>
+			<span>Do you want DESERT?!!?!?!</span>
+			<label for="yes">DEAR LORD YES!!!</lable>
+			<input type = "checkbox" id = "yes"/>
+		</div>
+	</div>
+
 
 </body>
 </html>
