@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic template - jQuery Mobile: Design and Develop</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+</head>
+
+<body>
+	<div data-role = "page" id = "human">
+		<div data-role="header">
+			<h2>waitress</h2>
+		</div>
+
+		<div data-role=content>
+			<h3>Waffle House Menu</h3>
+			<ul data-role=listview>
+				<li>Waffles</li>
+				<li>Eggs</li>
+				<li>Hash Browns</li>
+				<li>Chezzey Grits</li>
+				<li>Coffee</li>
+				<li>Hamburger</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

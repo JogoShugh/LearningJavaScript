@@ -1,0 +1,26 @@
+<body>
+	<input id="first"/>
+	<input id="second"/>
+
+<script type="text/coffeescript">
+assert = (condition, message) ->
+	if not condition
+		console.log message
+
+elems =
+	length: 0
+	add: (elem) ->
+		Array.prototype.push.call this, elem # causes @.length to come into existence!
+	gather: (id) ->
+		@.add document.getElementById(id)
+
+elems.gather "first"
+assert elems.length == 1 and elems[0].nodeType, "Verify that we have an element in our stash"
+
+elems.gather "second"
+assert elems.length == 2 and elems[1].nodeType, "Verify the other insertion"
+
+console.log "elems.length: #{elems.length}"
+
+</script>
+<script src="coffee-script.js"></script>

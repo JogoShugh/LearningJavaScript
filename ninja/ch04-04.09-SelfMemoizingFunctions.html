@@ -1,0 +1,27 @@
+<script>
+function assert(condition, message) {
+	if (!condition) {
+		console.log(message);
+	}
+}
+
+function isPrime(value) {
+	if (!isPrime.answers) isPrime.answers = {};
+	if (isPrime.answers[value] != null) {
+		return isPrime.answers[value];
+	}
+	var prime = value != 1; // 1 can never be prime!
+	for (var i = 2; i < value; i++) {
+		if (value % i == 0) {
+			prime = false;
+			break;
+		}
+	}
+	isPrime.answers[value] = prime;
+	return prime;
+}
+
+assert(isPrime(5), "5 is prime!");
+assert(isPrime.answers[5], "The answer was cached!");
+assert(isPrime.answers[7], "7 should not be cached, so this should show up!"); // Should show up (fail!)
+</script>
