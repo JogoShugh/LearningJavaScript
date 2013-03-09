@@ -13,27 +13,38 @@
 	<div data-role = "page" id = "human">
 		<div data-role="header">
 			<h2>Waffle House Menu</h2>
-		</div>
-		<div data-role=content >
-			<div data-role= controlgroup data-type=horizontal>
-				<a href=#Breakfast data-role = button data-icon = home data-inline = "true">Breakfast</a>
-				<a href=#Lunch data-role = button data-icon = home data-inline = "true">Lunch</a>
-				
-			</div>
-			<a href="#Dinner" data-role= button data-icon="home">Dinner</a>
-		</div>	
+			<a href=#>Checkout</a>
+			<a href=#>Store</a>
+			<div data-role="navbar">
+				<ul>
+					<li><a href=#Breakfast data-role = button data-icon = home data-inline = "true">Breakfast</a></li>
+					<li><a href=#Lunch data-role = button data-icon = home data-inline = "true">Lunch</a></li>
+					<li><a href="#Dinner" data-role= button data-icon="home">Dinner</a></li>
 
-		<div data-role=content>
-			<ul data-role=listview data-filter=true data-inset = true>
+				</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h1>Shoutout to IHop</h1>
+		</div>
+	</div>
+
+
+<div data-role=content>
+	<div data-role="collapsible-set">
+		<div data-role="collapsible">
+				<h1>Food</h1>
+			<ul data-role="listview" data-filter=true data-inset = true>
 				<li data-role="list-divider">FOOD</li>
-				<li data-icon = alert><a href=#><img src = "Waffle-House-2.jpg"/>Waffles<span class=ui-li-count>50</span></a></li>
+				<li data-icon = alert><input type="range" min="1" max="55"<a href=#><img src = "Waffle-House-2.jpg"/>Waffles<span class=ui-li-count>55</span></a></li>
 				<li data-icon = "grid"><a href = "#eggs" data-transition="flip"><img src="cracked-egg.jpg"/>Eggs</a></li>
 				<li data-icon = forward><a href=#><img src = "hash-browns.jpg"/>Hash Browns</a></li>
 				<li><img src = "exps2422_C2016C51D.jpg"/>Chezzey Grits</li>
 				<li><img src = "svetik.jpg"/>Hamburger</li>
 			</ul>
-		</div>
-		<div data-role=content>
+		
+			</div>
+		<div data-role="collapsible">
+				<h1>Drinks</h1>
 			<span>Choose you are refreshment: </span>
 			<select data-native-menu=false data-icon = arrow-u>
 				<optGroup label = "Choose, we command you!!">
@@ -52,7 +63,9 @@
 			</select>
 		</div>
 	</div>
-	<div data-role = "page" id = "eggs" data-add-back-btn = true>
+	</div>
+</div>
+	<div data-role = "page" id = "eggs" data-add-back-btn = "true" data-back-btn-text="Food">
 			<div data-role = "header">
 				<h3>EGGS<h3>
 			</div>
@@ -73,11 +86,31 @@
 		</div>
 		<div data-role = "content">
 			<p><Will figure this out later</p>
-			<span>Do you want DESERT?!!?!?!</span>
-			<label for="yes">DEAR LORD YES!!!</lable>
-			<input type = "checkbox" id = "yes"/>
+			<span>Choose a Dessert</span>
+			<div data-role="controlgroup">
+			<label for="cake">Chocolate Cake</label>
+			<input type = "radio" id = "cake" name="dessert"/>
+			<label for="cookie">Cookie Cake</label>
+			<input type = "radio" id = "cookie" name = "dessert"/>
+			<label for="roll">Cinnamon Roll</label>
+			<input type = "radio" id = "roll" name ="dessert"/>
+			<label for="cold">Ice Cream</label>
+			<input type = "radio" id = "cold" name="dessert"/>
 		</div>
-	</div>
+		<div data-role="content">
+			<span>Tip your waiter?</span>
+			<select data-role="slider">
+				<option value="no">15%</option>
+				<option value="yes" selected="selected">20%</option>
+			</select>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h6>Ayo Dis b where da foot iz ad</h6>
+		</div>
+
+
+</div>
+
 
 
 </body>
