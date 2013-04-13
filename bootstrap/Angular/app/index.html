@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="utf-8">
+  <title>Danny's Menu</title>
+  <!--<link rel="stylesheet" href="css/app.css">-->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="MenuCtrl">
+<nav class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li ng-repeat="navLink in navLinks"><a href="{{navLink.href}}">{{navLink.text}}</a></li>
+    </ul>
+  </div>
+</nav>
+</body>
+</html>
