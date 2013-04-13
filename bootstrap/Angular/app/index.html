@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app="Menu">
+<head>
+  <meta charset="utf-8">
+  <title>Danny's Menu</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="MenuController">
+<nav class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <ul class="nav">
+        <li ng-repeat="navLink in navLinks" ng-class="{active: meal == '{{navLink.meal}}' }"><a href="#/menu/{{navLink.meal}}">{{navLink.text}}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid" style="margin-top:50px">
+  <div class="row-fluid">
+    <div class="span8">
+      <ng-view></ng-view>
+    </div>
+  </div>
+  <div class="span4" style="background:#fcfcfc">
+    This is a big advertisement test
+  </div>
+</div>  
+</body>
+</html>
