@@ -1,3 +1,6 @@
+rootPath = '/LearningJavaScript/bootstrap/Angular/app'
+# rootPath = ''
+
 # Utilities
 copy = (from, to, propertyNames) ->
 	for propertyName in propertyNames
@@ -27,7 +30,7 @@ copy = (from, to, propertyNames) ->
 		meal: 'dinner'
 	]
 
-	$http.get('/data/mealMenus.json').success (data) ->
+	$http.get(rootPath + '/data/mealMenus.json').success (data) ->
 		$rootScope.mealMenus = data;
 
 	$rootScope.getMenuFor = (meal) ->
