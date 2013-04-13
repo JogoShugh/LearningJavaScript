@@ -1,32 +1,49 @@
-# Controllers 
+# Utilities
+copy = (from, to, propertyNames) ->
+	for propertyName in propertyNames
+		to[propertyName] = from[propertyName]
 
-@MenuCtrl = ($scope) ->
-	$scope.navLinks = [
+# Module configuration
+@Menu = angular.module 'Menu', []
+
+@Menu.config ($routeProvider) ->
+	$routeProvider.when('/menu/:meal', {
+		templateUrl: 'partials/menu.html'
+		controller: 'RouteController'
+	}).otherwise({
+		redirectTo: '/menu/breakfast'
+	})
+
+# Controllers
+@MenuController = ($scope, $rootScope, $http) ->
+	$rootScope.navLinks = [
 		text: 'Breakfast'
-		href: 'Breakfast.html'
+		meal: 'breakfast'
 	,
 		text: 'Lunch'
-		href: 'Lunch.html'
+		meal: 'lunch'
 	,
 		text: 'Dinner'
-		href: 'Dinner.html'
+		meal: 'dinner'
 	]
 
-	$scope.menuItems =
-		breakfast: {}
-		lunch: 
-			headings: ['Item', 'Price', 'Calories']
-			items: [
-				item: 'Hamburger'
-				price: 6.75
-				calories: 475
-			,
-				item:'Chicken Sandwich Plate'
-				price: 9.45
-				calories: 587
-			,
-				item: 'Kalebone Roast Sandwich'
-				price: 7.50
-				calories: 355
-			]
-		dinner: {}
+	$http.get('/data/mealMenus.json').success (data) ->
+		$rootScope.mealMenus = data;
+
+	$rootScope.getMenuFor = (meal) ->
+		if @mealMenus[meal]?
+			return @mealMenus[meal]
+		else
+			menu = @mealMenus.default
+			menu.name = meal
+			return menu
+
+	$scope.$on 'routeLoaded', (event, args) ->
+		$scope.meal = args.meal
+		$rootScope.meal = args.meal
+
+@RouteController = ($scope, $rootScope, $routeParams) ->
+	meal = $routeParams.meal
+	$scope.menu = meal
+	meal = $rootScope.getMenuFor(meal)
+	copy meal, $scope, ['name', 'headings', 'items']

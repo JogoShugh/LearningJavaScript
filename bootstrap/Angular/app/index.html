@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="Menu">
 <head>
   <meta charset="utf-8">
   <title>Danny's Menu</title>
@@ -8,40 +8,25 @@
   <script src="lib/angular/angular.js"></script>
   <script src="js/controllers.js"></script>
 </head>
-<body ng-controller="MenuCtrl">
-<nav class="navbar">
+<body ng-controller="MenuController">
+<nav class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <ul class="nav">
-      <li ng-repeat="navLink in navLinks"><a href="{{navLink.href}}">{{navLink.text}}</a></li>
-    </ul>
+    <div class="container-fluid">
+      <ul class="nav">
+        <li ng-repeat="navLink in navLinks" ng-class="{active: meal == '{{navLink.meal}}' }"><a href="#/menu/{{navLink.meal}}">{{navLink.text}}</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top:50px">
   <div class="row-fluid">
-    <div class="span4">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th ng-repeat="heading in menuItems.lunch.headings">{{heading}}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="item in menuItems.lunch.items">
-          <td>
-            <p>{{item.item}}</p>
-          </td>
-          <td> 
-            <p>${{item.price}}</p>
-          </td>
-          <td>
-            <p>${{item.calories}}</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="span8">
+      <ng-view></ng-view>
+    </div>
   </div>
-  <div class="span8" style="background:#fcfcfc">
+  <div class="span4" style="background:#fcfcfc">
     This is a big advertisement test
   </div>
+</div>  
 </body>
 </html>

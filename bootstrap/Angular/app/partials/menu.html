@@ -1,0 +1,21 @@
+<h2>{{name}} menu</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th ng-repeat="heading in headings">{{heading}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in items">
+      <td>
+        <p>{{item.item}}</p>
+      </td>
+      <td> 
+        <p>${{item.price}}</p>
+      </td>
+      <td>
+        <p>${{item.calories}}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>

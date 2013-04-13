@@ -1,0 +1,58 @@
+{ 
+"default": {
+  "headings": ["Item", "Price", "Calories"],
+  "items": [
+    {
+      "item": "Hamburger",
+      "price": 6.75,
+      "calories": 475
+    }, {
+      "item": "Chicken Sandwich Plate",
+      "price": 9.45,
+      "calories": 587
+    }, {
+      "item": "Kalebone Roast Sandwich",
+      "price": 7.50,
+      "calories": 355
+    }
+  ]
+},
+"lunch": {
+  "name": "Lunch",
+  "headings": ["Item", "Price", "Calories"],
+  "items": [
+    {
+      "item": "Jamburger",
+      "price": 6.75,
+      "calories": 975
+    }, {
+      "item": "Lichen Sandwich Plate",
+      "price": 1.45,
+      "calories": 197
+    }, {
+      "item": "Sailbone Toast Sandwich",
+      "price": 4.50,
+      "calories": 855
+    }
+  ]
+},
+"breakfast": {
+  "name": "Breakfast",
+  "headings": ["Item", "Price", "Calories"],
+    "items": [
+      {
+        "item": "Scrambled Eggs",
+        "price": 2.75,
+        "calories": 375
+      }, {
+        "item": "Scrambled Tofu",
+        "price": 3.50,
+        "calories": 400
+      }, {
+        "item": "Home Fries",
+        "price": 3.00,
+        "calories": 250
+      }
+    ]
+  }
+}
