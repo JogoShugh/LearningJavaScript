@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Danny's Menu</title>
-  <!--<link rel="stylesheet" href="css/app.css">-->
   <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.css">
   <script src="lib/angular/angular.js"></script>
   <script src="js/controllers.js"></script>
 </head>
@@ -16,5 +16,32 @@
     </ul>
   </div>
 </nav>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th ng-repeat="heading in menuItems.lunch.headings">{{heading}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in menuItems.lunch.items">
+          <td>
+            <p>{{item.item}}</p>
+          </td>
+          <td> 
+            <p>${{item.price}}</p>
+          </td>
+          <td>
+            <p>${{item.calories}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="span8" style="background:#fcfcfc">
+    This is a big advertisement test
+  </div>
 </body>
 </html>
