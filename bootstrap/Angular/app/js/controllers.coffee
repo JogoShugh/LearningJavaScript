@@ -1,14 +1,12 @@
-# rootPath = '/LearningJavaScript/bootstrap/Angular/app'
-# rootPath = ''
-
 # Utilities
-copy = (from, to, propertyNames) ->
-	for propertyName in propertyNames
-		to[propertyName] = from[propertyName]
+copy = (from, to, propertiesToCopy) ->
+	for property in propertiesToCopy
+		to[property] = from[property]
 
-# Module configuration
+# Module setup
 @Menu = angular.module 'Menu', []
 
+# Routing
 @Menu.config ($routeProvider) ->
 	$routeProvider.when('/menu/:meal', {
 		templateUrl: 'partials/menu.html'
@@ -30,9 +28,8 @@ copy = (from, to, propertyNames) ->
 		meal: 'dinner'
 	]
 
-	#$http.get(rootPath + '/data/mealMenus.json').success (data) ->
 	$http.get('data/mealMenus.json').success (data) ->
-		$rootScope.mealMenus = data;
+		$rootScope.mealMenus = data
 
 	$rootScope.getMenuFor = (meal) ->
 		if @mealMenus[meal]?
@@ -41,10 +38,6 @@ copy = (from, to, propertyNames) ->
 			menu = @mealMenus.default
 			menu.name = meal
 			return menu
-
-	$scope.$on 'routeLoaded', (event, args) ->
-		$scope.meal = args.meal
-		$rootScope.meal = args.meal
 
 @RouteController = ($scope, $rootScope, $routeParams) ->
 	meal = $routeParams.meal

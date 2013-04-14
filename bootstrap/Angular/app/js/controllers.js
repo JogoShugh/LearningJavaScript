@@ -2,13 +2,13 @@
 (function() {
   var copy;
 
-  copy = function(from, to, propertyNames) {
-    var propertyName, _i, _len, _results;
+  copy = function(from, to, propertiesToCopy) {
+    var property, _i, _len, _results;
 
     _results = [];
-    for (_i = 0, _len = propertyNames.length; _i < _len; _i++) {
-      propertyName = propertyNames[_i];
-      _results.push(to[propertyName] = from[propertyName]);
+    for (_i = 0, _len = propertiesToCopy.length; _i < _len; _i++) {
+      property = propertiesToCopy[_i];
+      _results.push(to[property] = from[property]);
     }
     return _results;
   };
@@ -40,7 +40,7 @@
     $http.get('data/mealMenus.json').success(function(data) {
       return $rootScope.mealMenus = data;
     });
-    $rootScope.getMenuFor = function(meal) {
+    return $rootScope.getMenuFor = function(meal) {
       var menu;
 
       if (this.mealMenus[meal] != null) {
@@ -51,10 +51,6 @@
         return menu;
       }
     };
-    return $scope.$on('routeLoaded', function(event, args) {
-      $scope.meal = args.meal;
-      return $rootScope.meal = args.meal;
-    });
   };
 
   this.RouteController = function($scope, $rootScope, $routeParams) {
