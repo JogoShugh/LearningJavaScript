@@ -1,21 +1,17 @@
 <h2>{{name}} menu</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th ng-repeat="heading in headings">{{heading}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="item in items">
-      <td>
-        <p>{{item.item}}</p>
-      </td>
-      <td> 
-        <p>${{item.price}}</p>
-      </td>
-      <td>
-        <p>${{item.calories}}</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th ng-repeat="heading in headings">{{heading}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in items">
+        <td data-title="Name">{{item.item}}</td>
+        <td data-title="Price">${{item.price}}</td>
+        <td data-title="Calories">${{item.calories}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
