@@ -39,6 +39,9 @@
     ];
     $http.get('data/mealMenus.json').success(function(data) {
       return $rootScope.mealMenus = data;
+          $('.carousel').carousel({
+        interval: 2000
+      });
     });
     return $rootScope.getMenuFor = function(meal) {
       var menu;
@@ -61,5 +64,20 @@
     meal = $rootScope.getMenuFor(meal);
     return copy(meal, $scope, ['name', 'headings', 'items']);
   };
-
+  this.CarouselDemoCtrl = function($scope) {
+    $scope.myInterval = 5000;
+    $scope.slides = [
+    {image: 'egg.png',text: 'Kitten.'},
+    {image: 'waffle_06.png',text: 'Kitty!'},
+    {image: 'images.png',text: 'Cat.'},
+    {image: 'tofu.png',text: 'Feline!'}
+  ];
+    $scope.addSlide = function() {
+      $scope.slides.push({
+        image: 'http://placekitten.com/'+(200+25*Math.floor(Math.random()*4))+'/200',
+        text: ['More','Extra','Lots of','Surplus'][Math.floor(Math.random()*4)] + ' ' +
+          ['Cats', 'Kittys', 'Felines', 'Cutes'][Math.floor(Math.random()*4)]
+    });
+  };
+}
 }).call(this);
