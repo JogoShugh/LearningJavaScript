@@ -64,6 +64,13 @@
     meal = $rootScope.getMenuFor(meal);
     return copy(meal, $scope, ['name', 'headings', 'items']);
   };
+  /**this.DropdownCtrl = function($scope) {
+  $scope.items = [
+    "The first choice!",
+    "And another choice for you.",
+    "but wait! A third!"
+  ];
+}.call(this);*/
   this.CarouselDemoCtrl = function($scope) {
     $scope.myInterval = 5000;
     $scope.slides = [
